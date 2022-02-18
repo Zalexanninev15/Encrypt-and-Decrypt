@@ -1,4 +1,4 @@
-# PassGen | 🔥[Run](https://zalexanninev15.github.io/Encrypt-and-Decrypt)
+# Encrypt and Decrypt | 🔥[Run](https://zalexanninev15.github.io/Encrypt-and-Decrypt)
 
 [![](https://img.shields.io/badge/platforms-All_with_Internet-27282D.svg)](https://github.com/Zalexanninev15/Encrypt-and-Decrypt)
 [![](https://img.shields.io/badge/written_on-Java_Script-E34F26.svg?logo=javascript)](https://github.com/Zalexanninev15/Encrypt-and-Decrypt)
@@ -10,7 +10,7 @@
 
 ## Screenshot
 
-Soon!
+![image](https://user-images.githubusercontent.com/51060911/154688172-c12dc2c2-2468-44ca-88e1-3cb2a9552afe.png)
 
 ## Description
 Encrypt and Decrypt text with key
