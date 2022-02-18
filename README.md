@@ -13,4 +13,4 @@
 ![image](https://user-images.githubusercontent.com/51060911/154688172-c12dc2c2-2468-44ca-88e1-3cb2a9552afe.png)
 
 ## Description
-Encrypt and Decrypt text with key
+The utility allows you to encrypt and decrypt text (or from a file) using one of 4 encryption algorithms. Can also add Base64 to the selected algorithm for more reliability. The encrypted text can be copied or saved to a file
