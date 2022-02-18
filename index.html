@@ -1,74 +1,83 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Encrypt and Decrypt text with key</title>
-  <meta name="description" content="Encrypt and Decrypt text with key">
+<html lang="ru">
 
-<!-- CryptoJS -->
-  <script src="cryptojs/src/core.js"></script>
-  <script src="cryptojs/src/lib-typedarrays.js"></script>
-  <script src="cryptojs/src/x64-core.js"></script>
-  <script src="cryptojs/src/enc-utf16.js"></script>
-  <script src="cryptojs/src/enc-base64.js"></script>
-  <script src="cryptojs/src/enc-base64url.js"></script>
-  <script src="cryptojs/src/md5.js"></script>
-  <script src="cryptojs/src/sha1.js"></script>
-  <script src="cryptojs/src/sha256.js"></script>
-  <script src="cryptojs/src/sha224.js"></script>
-  <script src="cryptojs/src/sha512.js"></script>
-  <script src="cryptojs/src/sha384.js"></script>
-  <script src="cryptojs/src/sha3.js"></script>
-  <script src="cryptojs/src/ripemd160.js"></script>
-  <script src="cryptojs/src/hmac.js"></script>
-  <script src="cryptojs/src/pbkdf2.js"></script>
-  <script src="cryptojs/src/evpkdf.js"></script>
-  <script src="cryptojs/src/cipher-core.js"></script>
-  <script src="cryptojs/src/mode-cfb.js"></script>
-  <script src="cryptojs/src/mode-ctr.js"></script>
-  <script src="cryptojs/src/mode-ofb.js"></script>
-  <script src="cryptojs/src/mode-ecb.js"></script>
-  <script src="cryptojs/src/pad-ansix923.js"></script>
-  <script src="cryptojs/src/pad-iso10126.js"></script>
-  <script src="cryptojs/src/pad-zeropadding.js"></script>
-  <script src="cryptojs/src/pad-iso97971.js"></script>
-  <script src="cryptojs/src/pad-nopadding.js"></script>
-  <script src="cryptojs/src/rc4.js"></script>
-  <script src="cryptojs/src/rabbit.js"></script>
-  <script src="cryptojs/src/rabbit-legacy.js"></script>
-  <script src="cryptojs/src/aes.js"></script>
-  <script src="cryptojs/src/tripledes.js"></script>
-  
-  <style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Encrypt and Decrypt text with key</title>
+    <meta name="description" content="Encrypt and Decrypt text with key">
+
+    <!-- CryptoJS -->
+    <script src="cryptojs/src/core.js"></script>
+    <script src="cryptojs/src/lib-typedarrays.js"></script>
+    <script src="cryptojs/src/x64-core.js"></script>
+    <script src="cryptojs/src/enc-utf16.js"></script>
+    <script src="cryptojs/src/enc-base64.js"></script>
+    <script src="cryptojs/src/enc-base64url.js"></script>
+    <script src="cryptojs/src/md5.js"></script>
+    <script src="cryptojs/src/sha1.js"></script>
+    <script src="cryptojs/src/sha256.js"></script>
+    <script src="cryptojs/src/sha224.js"></script>
+    <script src="cryptojs/src/sha512.js"></script>
+    <script src="cryptojs/src/sha384.js"></script>
+    <script src="cryptojs/src/sha3.js"></script>
+    <script src="cryptojs/src/ripemd160.js"></script>
+    <script src="cryptojs/src/hmac.js"></script>
+    <script src="cryptojs/src/pbkdf2.js"></script>
+    <script src="cryptojs/src/evpkdf.js"></script>
+    <script src="cryptojs/src/cipher-core.js"></script>
+    <script src="cryptojs/src/mode-cfb.js"></script>
+    <script src="cryptojs/src/mode-ctr.js"></script>
+    <script src="cryptojs/src/mode-ofb.js"></script>
+    <script src="cryptojs/src/mode-ecb.js"></script>
+    <script src="cryptojs/src/pad-ansix923.js"></script>
+    <script src="cryptojs/src/pad-iso10126.js"></script>
+    <script src="cryptojs/src/pad-zeropadding.js"></script>
+    <script src="cryptojs/src/pad-iso97971.js"></script>
+    <script src="cryptojs/src/pad-nopadding.js"></script>
+    <script src="cryptojs/src/rc4.js"></script>
+    <script src="cryptojs/src/rabbit.js"></script>
+    <script src="cryptojs/src/rabbit-legacy.js"></script>
+    <script src="cryptojs/src/aes.js"></script>
+    <script src="cryptojs/src/tripledes.js"></script>
+
+    <style>
         .pageEncrypt {
             display: block;
             width: calc(100% - 20px);
             margin: 0 auto;
             max-width: 800px;
         }
+
         h1 {
             font-size: 22px;
             text-align: center;
         }
+
         h2 {
             font-size: 20px;
             text-align: center;
         }
+
         .formEncrypt textarea {
             width: 100%;
             min-height: 100px;
             border: 1px solid #cccccc;
         }
+
         .formEncrypt textarea.resultText {
             background: #f5f5f5;
             color: #000;
         }
+
         .formEncrypt input[name=key] {
             width: 100%;
             height: 30px;
             border: 1px solid #cccccc;
         }
-        .execute,.ClearForm {
+
+        .execute,
+        .ClearForm {
             text-transform: uppercase;
             background: #4c8fdf;
             color: #fff;
@@ -79,11 +88,14 @@
             cursor: pointer;
             border-radius: 12px;
         }
+
         .ClearForm {
             background: #2f3549;
             text-decoration: none;
         }
-        .copy, .saveFile {
+
+        .copy,
+        .saveFile {
             text-align: right;
             float: right;
             color: #0ba766;
@@ -92,142 +104,168 @@
             margin-left: 20px;
         }
     </style>
-</head><body>
-<div style="font-family: Segoe UI;" class="pageEncrypt">
-<h1>Encrypt and Decrypt text with key, version 1.0</h1>
-<h1><b>Author: <a href="https://github.com/Zalexanninev15">Zalexanninev15</a><br></b></h1>
-<form class="formEncrypt" method="post" enctype="multipart/form-data">
-  <div>
-  <p><b>Specify text or select a text file:</p><p><input name="fileText" class="fileText" accept="text/plain" type="file"></b></p>
-  <textarea name="text"> 
- </textarea> </div>
-  <div><label><p><b>Key:</b> </p><p><input name="key" autocomplete="off" type="password"></p></label></div>
-  <div>
-  <p><b>Algorithm:</b> <label><input name="Algorithm" value="AES" checked="checked" type="radio">AES</label> <label><input name="algorithm" value="RC4" type="radio">RC4</label> <label><input name="algorithm" value="TripleDES" type="radio">Triple DES (3DES)</label>
-  <label><input name="algorithm" value="Rabbit" type="radio">Rabbit</label>
-  </p>
-  </div>
-  <div>
-  <p><b>Action type:</b> <label><input name="action" value="1" checked="checked" type="radio">Encrypt</label> <label><input name="action" value="2" type="radio">Decrypt</label> </p>
-  </div>
-  <div style="font-weight: bold;"> <label><input name="format" value="1" type="checkbox"> Use
-Base64</label> </div>
-  <div> <button class="execute" type="submit">execute</button> <button class="ClearForm" type="submit" onclick="window.location.reload(true);">clear all</div>
-  <div>
-  <p><b>Result</b> <a class="saveFile" href="#">Save to file</a> <a class="copy" href="#">Copy</a></p>
-  <textarea class="resultText" disabled="disabled"></textarea> </div>
-</form>
-<script type="application/javascript">
-        var FileName = 'ResultText.txt';
+</head>
 
-        function copyToClipboard(str) {
-            var el = document.createElement('textarea');
-            el.value = str;
-            el.setAttribute('readonly', '');
-            el.style.position = 'absolute';
-            el.style.left = '-9999px';
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-        }
+<body>
+    <div style="font-family: Segoe UI;" class="pageEncrypt">
+        <h1>Encrypt and Decrypt text with key, version 1.0-1</h1>
+        <h1><b>Author: <a href="https://github.com/Zalexanninev15">Zalexanninev15</a><br></b></h1>
+        <form class="formEncrypt" method="post" enctype="multipart/form-data">
+            <div>
+                <p><b>Specify text or select a text file:</p>
+                <p><input name="fileText" class="fileText" accept="text/plain" type="file"></b></p>
+                <textarea name="text">
+ </textarea>
+            </div>
+            <div><label>
+                    <p><b>Key:</b> </p>
+                    <p><input name="key" autocomplete="off" type="password"></p>
+                </label></div>
+            <div>
+                <p>
+                    <b>Algorithm:</b>
+                    <label><input name="algorithm" value="AES" type="radio" checked="checked">AES</label>
+                    <label><input name="algorithm" value="RC4" type="radio">RC4</label>
+                    <label><input name="algorithm" value="TripleDES" type="radio">Triple DES (3DES)</label>
+                    <label><input name="algorithm" value="Rabbit" type="radio">Rabbit</label>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <b>Action type:</b>
+                    <label><input name="action" value="1" checked="checked" type="radio">Encrypt</label>
+                    <label><input name="action" value="2" type="radio">Decrypt</label>
+                </p>
+            </div>
+            <div style="font-weight: bold;"> <label><input name="format" value="1" type="checkbox"> Use
+                    Base64</label> </div>
+            <div>
+                <button class="execute" type="submit">execute</button>
+                <button class="ClearForm" type="submit" onclick="window.location.reload(true);">clear all</button></div>
+            <div>
+                <p><b>Result</b>
+                    <a class="saveFile" href="#">Save to file</a>
+                    <a class="copy" href="#">Copy</a>
+                </p>
+                <textarea class="resultText" disabled="disabled"></textarea>
+            </div>
+        </form>
+        <script type="application/javascript">
+            var FileName = 'ResultText.txt';
 
-        document.addEventListener('click', function OnClick(event) {
-            var $this = event.target;
-            var ActionNameClass = 'copy';
-            if ($this.classList.contains(ActionNameClass)) {
-                event.preventDefault();
-                var resultText = document.querySelector('.resultText');
-                copyToClipboard(resultText.value);
-                return false;
+            function copyToClipboard(str) {
+                var el = document.createElement('textarea');
+                el.value = str;
+                el.setAttribute('readonly', '');
+                el.style.position = 'absolute';
+                el.style.left = '-9999px';
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
             }
-            var ActionNameClass = 'saveFile';
-            if ($this.classList.contains(ActionNameClass)) {
-                event.preventDefault();
-                var resultText = document.querySelector('.resultText');
-                var hiddenElement = document.createElement('a');
-                hiddenElement.href = 'data:attachment/text,' + encodeURI(resultText.value);
-                hiddenElement.target = '_blank';
-                hiddenElement.download = FileName;
-                hiddenElement.click();
-                return false;
-            }
-        });
 
-        document.addEventListener('change', function OnClick(event) {
-            var $this = event.target;
-            var ActionNameClass = 'fileText';
-            if ($this.classList.contains(ActionNameClass)) {
-                event.preventDefault();
-                var fileText = document.querySelector('.formEncrypt [name="fileText"]');
-                FileName = fileText.value.split('/').pop().split('\\').pop();
-                var text = document.querySelector('.formEncrypt [name="text"]');
-                var reader = new FileReader();
-                reader.onload = function(){
-                    text.value = reader.result;};
-                reader.readAsText(fileText.files[0]);
-                fileText.value = '';
-                return false;
-            }
-        });
-
-        document.addEventListener('submit', function OnClick(event) {
-            var $this = event.target;
-            var ActionNameClass = 'formEncrypt';
-            if ($this.classList.contains(ActionNameClass)) {
-                event.preventDefault();
-                var resultText = document.querySelector('.resultText');
-                var resultStr = '';
-                resultText.value = '';
-                var formData = new FormData($this);
-                var text = formData.get("text");
-                var key = formData.get("key");
-                var algorithm = formData.get("algorithm");
-                var action = formData.get("action");
-                var format = formData.get("format");
-                // Encrypt
-                if (action == 1) {
-                    if (algorithm == 'AES') {
-                        var cipherText = CryptoJS.AES.encrypt(text, key).toString();
-                    }
-                    if (algorithm == 'RC4') {
-                        var cipherText = CryptoJS.RC4.encrypt(text, key).toString();
-                    }
-                    if (algorithm == 'TripleDES') {
-                        var cipherText = CryptoJS.TripleDES.encrypt(text, key).toString();
-                    }
-                    if (algorithm == 'Rabbit') {
-                        var cipherText = CryptoJS.Rabbit.encrypt(text, key).toString();
-                    }
-                    if (format == 1) {
-                        resultStr = btoa(cipherText);
-                    } else {
-                        resultStr = cipherText;
-                    }
+            document.addEventListener('click', function OnClick(event) {
+                var $this = event.target;
+                var ActionNameClass = 'copy';
+                if ($this.classList.contains(ActionNameClass)) {
+                    event.preventDefault();
+                    var resultText = document.querySelector('.resultText');
+                    copyToClipboard(resultText.value);
+                    return false;
                 }
-                // Decrypt
-                if (action == 2) {
-                    if (format == 1) {
-                        text = atob(text);
-                    }
-                    if (algorithm == 'AES') {
-                        var bytes = CryptoJS.AES.decrypt(text, key);
-                    }
-                    if (algorithm == 'RC4') {
-                        var bytes = CryptoJS.RC4.decrypt(text, key);
-                    }
-                    if (algorithm == 'TripleDES') {
-                        var bytes = CryptoJS.TripleDES.decrypt(text, key);
-                    }
-                    if (algorithm == 'Rabbit') {
-                        var bytes = CryptoJS.Rabbit.decrypt(text, key);
-                    }
-                    var originalText = bytes.toString(CryptoJS.enc.Utf8);
-                    resultStr = originalText;
+                var ActionNameClass = 'saveFile';
+                if ($this.classList.contains(ActionNameClass)) {
+                    event.preventDefault();
+                    var resultText = document.querySelector('.resultText');
+                    var hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:attachment/text,' + encodeURI(resultText.value);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = FileName;
+                    hiddenElement.click();
+                    return false;
                 }
-                resultText.value = resultStr;
-                return false; } });
-    </script>
-</div>
+            });
 
-</body></html>
+            document.addEventListener('change', function OnClick(event) {
+                var $this = event.target;
+                var ActionNameClass = 'fileText';
+                if ($this.classList.contains(ActionNameClass)) {
+                    event.preventDefault();
+                    var fileText = document.querySelector('.formEncrypt [name="fileText"]');
+                    FileName = fileText.value.split('/').pop().split('\\').pop();
+                    var text = document.querySelector('.formEncrypt [name="text"]');
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        text.value = reader.result;
+                    };
+                    reader.readAsText(fileText.files[0]);
+                    fileText.value = '';
+                    return false;
+                }
+            });
+
+            document.addEventListener('submit', function OnClick(event) {
+                var $this = event.target;
+                var ActionNameClass = 'formEncrypt';
+                if ($this.classList.contains(ActionNameClass)) {
+                    event.preventDefault();
+                    var resultText = document.querySelector('.resultText');
+                    var resultStr = '';
+                    resultText.value = '';
+                    var formData = new FormData($this);
+                    var text = formData.get("text");
+                    var key = formData.get("key");
+                    var algorithm = formData.get("algorithm");
+                    var action = formData.get("action");
+                    var format = formData.get("format");
+                    // Encrypt
+                    if (action == 1) {
+                        if (algorithm == 'AES') {
+                            var cipherText = CryptoJS.AES.encrypt(text, key).toString();
+                        }
+                        if (algorithm == 'RC4') {
+                            var cipherText = CryptoJS.RC4.encrypt(text, key).toString();
+                        }
+                        if (algorithm == 'TripleDES') {
+                            var cipherText = CryptoJS.TripleDES.encrypt(text, key).toString();
+                        }
+                        if (algorithm == 'Rabbit') {
+                            var cipherText = CryptoJS.Rabbit.encrypt(text, key).toString();
+                        }
+                        if (format == 1) {
+                            resultStr = btoa(cipherText);
+                        } else {
+                            resultStr = cipherText;
+                        }
+                    }
+                    // Decrypt
+                    if (action == 2) {
+                        if (format == 1) {
+                            text = atob(text);
+                        }
+                        if (algorithm == 'AES') {
+                            var bytes = CryptoJS.AES.decrypt(text, key);
+                        }
+                        if (algorithm == 'RC4') {
+                            var bytes = CryptoJS.RC4.decrypt(text, key);
+                        }
+                        if (algorithm == 'TripleDES') {
+                            var bytes = CryptoJS.TripleDES.decrypt(text, key);
+                        }
+                        if (algorithm == 'Rabbit') {
+                            var bytes = CryptoJS.Rabbit.decrypt(text, key);
+                        }
+                        var originalText = bytes.toString(CryptoJS.enc.Utf8);
+                        resultStr = originalText;
+                    }
+                    resultText.value = resultStr;
+                    return false;
+                }
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>
