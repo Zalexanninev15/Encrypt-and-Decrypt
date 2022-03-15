@@ -14,3 +14,8 @@
 
 ## Description
 The utility allows you to encrypt and decrypt text (or from a file) using one of 4 encryption algorithms. Can also add Base64 to the selected algorithm for more reliability. The encrypted text can be copied or saved to a file
+
+## Features
+
+* Easily encrypt text/text from a file with support for combining multiple encryption methods. It is possible to decrypt already encrypted text
+* Possibility to export the encrypted/decrypted text to a file or it can be copied
