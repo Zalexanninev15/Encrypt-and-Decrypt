@@ -1,4 +1,4 @@
-# Encrypt and Decrypt | 🔥[Run](https://zalexanninev15.github.io/Encrypt-and-Decrypt)
+# Encrypt and Decrypt / [Launch ▶️](https://zalexanninev15.github.io/Encrypt-and-Decrypt)
 
 [![](https://img.shields.io/badge/platforms-All_with_Internet-27282D.svg)](https://github.com/Zalexanninev15/Encrypt-and-Decrypt)
 [![](https://img.shields.io/badge/written_on-Java_Script-E34F26.svg?logo=javascript)](https://github.com/Zalexanninev15/Encrypt-and-Decrypt)
